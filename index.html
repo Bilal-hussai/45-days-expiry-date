@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MFG EXP Date Tool</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f4f4f4;
+    font-family: "Arial Black", Arial, sans-serif;
+  }
+  .card{
+    background:#fff;
+    padding:25px 30px;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    text-align:left;
+    min-width:260px;
+  }
+  .date{
+    font-size:18px;
+    font-weight:800;
+    margin:6px 0;
+    letter-spacing:1px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="date" id="mfg"></div>
+  <div class="date" id="exp"></div>
+</div>
+
+<script>
+function formatDate(d){
+  const m = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+  return `${d.getDate()} ${m[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+const today = new Date();
+const exp = new Date(today);
+exp.setDate(today.getDate() + 45);
+
+document.getElementById("mfg").innerText = "MFG: " + formatDate(today);
+document.getElementById("exp").innerText = "EXP: " + formatDate(exp);
+</script>
+
+</body>
+</html>
